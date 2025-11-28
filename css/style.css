@@ -573,3 +573,20 @@ main p {
   }
 }
 
+/* Mobile IG Icon */
+.mobile-menu .mobile-ig-icon {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-menu .mobile-ig-icon img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-menu .mobile-ig-icon img:hover {
+  opacity: 1;
+}
