@@ -1,5 +1,56 @@
 /* ===========================
-   Base / Reset
+   ROOT COLORS
+=========================== */
+:root {
+  --accent: #C9B8A8;
+  --accent-light: #E8E1DA;
+  --background-color: #f7f7f7;
+  --canvas-color: #fff;
+}
+
+/* ===========================
+   GLOBAL ACCENT APPLICATIONS
+=========================== */
+.about h1,
+.contact h1,
+.services h1,
+.portfolio h1 {
+  color: var(--accent);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.footer-content a:hover {
+  color: var(--accent);
+}
+
+.book-button {
+  background: #000;
+  color: #fff;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.book-button:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.contact-form button:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.bg-accent-soft {
+  background: var(--accent-light);
+}
+
+/* ===========================
+   BASE / RESET
 =========================== */
 *,
 *:after,
@@ -7,11 +58,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-:root {
-  --background-color: #f7f7f7;
-  --canvas-color: #fff;
 }
 
 body {
@@ -51,14 +97,13 @@ main p {
 }
 
 /* ===========================
-   HEADER LAYOUT
+   HEADER
 =========================== */
 .site-header {
   background: white;
   border-bottom: 1px solid #eee;
   position: relative;
   z-index: 1000;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-container {
@@ -68,10 +113,9 @@ main p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 70px; /* Safari fix */
+  min-height: 70px;
 }
 
-/* Left nav */
 .nav-left {
   display: flex;
   gap: 2rem;
@@ -82,11 +126,14 @@ main p {
   color: #444;
   font-size: 0.95rem;
   letter-spacing: 1px;
+  transition: color 0.2s ease;
 }
 
-/* Center logo */
+.nav-left a:hover {
+  color: var(--accent);
+}
+
 .logo a {
-  font-family: 'Montserrat', serif;
   font-size: 1.8rem;
   font-weight: 700;
   color: #000;
@@ -94,7 +141,6 @@ main p {
   white-space: nowrap;
 }
 
-/* Right icons */
 .nav-icons {
   display: flex;
   gap: 1rem;
@@ -108,54 +154,53 @@ main p {
 }
 
 .nav-icons .icon:hover svg {
-  color: #000;
+  color: var(--accent);
+}
+
+/* Global link hover */
+a:hover {
+  color: var(--accent);
 }
 
 /* ===========================
-   HAMBURGER (2-line black)
+   HAMBURGER
 =========================== */
 .hamburger {
-  display: none;       /* hidden on desktop */
+  display: none;
   flex-direction: column;
   gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
   width: 40px;
-  height: auto;
   padding: 0.5rem;
-  flex-shrink: 0;      /* Safari fix */
 }
 
 .hamburger span {
   width: 30px;
   height: 3px;
-  background: #000;    /* black lines */
+  background: #000;
   border-radius: 3px;
   display: block;
 }
 
 /* ===========================
-   MOBILE MENU (Under Header)
+   MOBILE MENU
 =========================== */
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 70px;  /* height of your header */
+  top: 70px;
   left: 0;
   right: 0;
   bottom: 0;
-
   background: white;
   z-index: 9999;
-
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 2rem;
-
   gap: 2rem;
   text-align: center;
-
   overflow-y: auto;
 }
 
@@ -164,103 +209,69 @@ main p {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid var(--accent-light);
+}
+
+.mobile-menu a:hover {
+  color: var(--accent);
 }
 
 .mobile-menu.open {
   display: flex;
 }
 
-/* Prevent background scroll when menu open */
 .no-scroll {
   overflow: hidden;
 }
 
-
 /* ===========================
-   RESPONSIVE BREAKPOINT
+   RESPONSIVE NAV
 =========================== */
 @media (max-width: 900px) {
 
-  /* Hide desktop menu + icons */
   .nav-left,
   .nav-icons {
     display: none;
   }
 
-  /* Keep header as a single row */
   .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.2rem 1.5rem;
-    display: flex;
-    justify-content: center;  /* center logo */
-    align-items: center;
+    justify-content: center;
     position: relative;
   }
 
-  /* Smaller mobile logo */
   .logo a {
     font-size: 1.6rem;
   }
 
-  /* Hamburger on right */
   .hamburger {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    cursor: pointer;
-    z-index: 2001; /* above menu */
+    z-index: 2001;
   }
 
-  /* MOBILE MENU: overlay dropdown */
   .mobile-menu {
-    position: fixed;
-    top: 70px;        /* sits directly UNDER the header */
-    left: 0;
+    top: 70px;
     width: 100%;
-    height: calc(100vh-70px);
-    background: white;
-    display: none;
-    flex-direction: column;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-
-    /* overlay the rest of the page */
-    z-index: 3000;
     padding: 2rem 1.5rem;
   }
 
-  .mobile-menu.open {
-    display: flex;
-  }
-
   .mobile-menu a {
-    padding: 1rem 0;
     font-size: 1.6rem;
-    text-decoration: none;
-    color: #444;
-    text-align: right;  /* aligns text vertically down the right */
-    border-bottom: 1px solid #eee
+    text-align: right;
   }
-}
-
-.no-scroll {
-  overflow: hidden;
 }
 
 /* ===========================
-   NEW HERO SECTION
+   HERO SECTION
 =========================== */
 .hero {
   padding: 6rem 2rem;
   text-align: center;
   background: var(--canvas-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero h1 {
@@ -272,22 +283,18 @@ main p {
 
 .hero .tagline {
   font-size: 1.25rem;
-  color: #444;
+  color: #555;
   max-width: 600px;
   line-height: 1.6;
 }
 
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-  .hero .tagline {
-    font-size: 1.1rem;
-  }
+  .hero h1 { font-size: 2.4rem; }
+  .hero .tagline { font-size: 1.1rem; }
 }
 
 /* ===========================
-   MINIMAL FOOTER
+   FOOTER
 =========================== */
 .site-footer {
   background: #ffffff;
@@ -308,17 +315,11 @@ main p {
 .footer-content a {
   color: #555;
   text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-content a:hover {
-  color: #000;
 }
 
 /* ===========================
-   ABOUT PAGE
+   ABOUT
 =========================== */
-
 .about {
   padding: 5rem 2rem;
   background: #fff;
@@ -349,9 +350,7 @@ main p {
   color: #333;
 }
 
-.about-text p {
-  margin-bottom: 1.5rem;
-}
+.about-text p { margin-bottom: 1.5rem; }
 
 .about-photo {
   flex: 1;
@@ -365,9 +364,8 @@ main p {
 }
 
 /* ===========================
-   CONTACT PAGE
+   CONTACT
 =========================== */
-
 .contact {
   padding: 5rem 2rem;
   background: #fff;
@@ -409,19 +407,12 @@ main p {
 
 .contact-form input,
 .contact-form textarea {
-  font-family: 'Montserrat', sans-serif;
   padding: 0.9rem 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
   color: #333;
   transition: border 0.2s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #000;
-  outline: none;
 }
 
 .contact-form button {
@@ -436,14 +427,9 @@ main p {
   margin-top: 1rem;
 }
 
-.contact-form button:hover {
-  background: #333;
-}
-
 /* ===========================
-   SERVICES PAGE
+   SERVICES
 =========================== */
-
 .services {
   padding: 5rem 2rem;
   background: #fff;
@@ -460,12 +446,8 @@ main p {
   margin-bottom: 3rem;
 }
 
-/* Service Blocks */
-.service-block {
-  margin-bottom: 4rem;
-}
+.service-block { margin-bottom: 4rem; }
 
-/* Images */
 .service-images {
   display: flex;
   gap: 1.5rem;
@@ -480,7 +462,6 @@ main p {
   aspect-ratio: 4 / 3;
 }
 
-/* Titles + Captions */
 .service-block h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
@@ -496,35 +477,29 @@ main p {
   line-height: 1.7;
 }
 
-/* Mobile adjustments */
 @media (max-width: 700px) {
-  .service-images img {
-    width: 100%;
-  }
+  .service-images img { width: 100%; }
 }
 
 /* ===========================
-   BOOK BUTTON (CENTERED)
+   BOOK BUTTON
 =========================== */
-
 .book-button {
-  display: block;              /* full-width click zone */
-  width: fit-content;          /* shrink to button size */
-  margin: 1.5rem auto 0;       /* center horizontally */
+  display: block;
+  width: fit-content;
+  margin: 1.5rem auto 0;
   padding: 0.9rem 2rem;
-
   background: #000;
   color: #fff;
+  border-radius: 6px;
   text-decoration: none;
   font-size: 1rem;
-  border-radius: 6px;
-
-  transition: background 0.25s ease, transform 0.2s ease;
-  text-align: center;          /* just in case */
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 
 .book-button:hover {
-  background: #333;
+  background: var(--accent);
+  color: #000;
   transform: translateY(-2px);
 }
 
@@ -533,9 +508,8 @@ main p {
 }
 
 /* ===========================
-   PORTFOLIO PAGE
+   PORTFOLIO
 =========================== */
-
 .portfolio {
   padding: 5rem 2rem;
   background: #fff;
@@ -552,7 +526,6 @@ main p {
   margin-bottom: 3rem;
 }
 
-/* Grid layout */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -566,7 +539,6 @@ main p {
   border-radius: 8px;
 }
 
-/* Mobile layout (2 columns) */
 @media (max-width: 700px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -590,3 +562,4 @@ main p {
 .mobile-menu .mobile-ig-icon img:hover {
   opacity: 1;
 }
+
