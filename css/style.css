@@ -266,12 +266,33 @@ a:hover {
 }
 
 /* ===========================
-   HERO SECTION
+   HERO SECTION (with background image)
 =========================== */
 .hero {
-  padding: 6rem 2rem;
+  position: relative;
+  padding: 8rem 2rem;
   text-align: center;
-  background: var(--canvas-color);
+  background-image: url('../images/hero.jpg'); /* make sure your file path matches */
+  background-size: cover;
+  background-color: #000;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+/* Overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* darken or lighten if needed */
+  z-index: 1;
+}
+
+.hero h1,
+.hero .tagline {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -283,15 +304,23 @@ a:hover {
 
 .hero .tagline {
   font-size: 1.25rem;
-  color: #555;
-  max-width: 600px;
+  max-width: 650px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2.4rem; }
-  .hero .tagline { font-size: 1.1rem; }
+  .hero {
+    padding: 6rem 1.5rem;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .hero .tagline {
+    font-size: 1.1rem;
+  }
 }
+
 
 /* ===========================
    FOOTER

@@ -30,31 +30,34 @@
       </p>
 
       <!-- Contact Form (Netlify-ready) -->
-        <form class="contact-form" 
-            name="contact" 
-            method="POST" 
-            data-netlify="true"
-            action="/success.html">
-
-        <input type="hidden" name="form-name" value="contact">
+      <form class="contact-form"
+            action="https://formspree.io/f/xgvgzjva"
+            method="POST">
 
         <label>
-            Name
-            <input type="text" name="name" required>
+          Name
+          <input type="text" name="name" required>
         </label>
 
         <label>
-            Email
-            <input type="email" name="email" required>
+          Email
+          <input type="email" name="email" required>
         </label>
 
         <label>
-            Message
-            <textarea name="message" rows="5" required></textarea>
+          Message
+          <textarea name="message" rows="5" required></textarea>
         </label>
+
+        <!-- Redirect to success page -->
+        <input type="hidden" name="_redirect" value="/success.html">
+
+        <!-- Basic spam protection -->
+        <input type="text" name="_gotcha" style="display:none">
 
         <button type="submit">Send Message</button>
-        </form>
+      </form>
+
     </div>
   </section>
 
