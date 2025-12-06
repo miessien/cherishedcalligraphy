@@ -592,3 +592,76 @@ a:hover {
   opacity: 1;
 }
 
+/* ----------------------------- */
+/*   CHERISHED FORM REFINEMENT   */
+/* ----------------------------- */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin-top: 0.5rem;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+/* Luxury focus style */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201, 184, 168, 0.25); /* soft champagne glow */
+}
+
+/* Textarea sizing */
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* SUBMIT BUTTON */
+.contact-form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Button hover effect — soft lift */
+.contact-form button:hover {
+  background: #b9a292; /* slightly deeper champagne */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Button focus (for accessibility) */
+.contact-form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201,184,168,0.35);
+}
