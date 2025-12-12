@@ -152,6 +152,23 @@ body {
   flex-shrink: 0;
 }
 
+/* Images inside the carousel */
+.carousel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center center; /* default for all images */
+  flex-shrink: 0;
+}
+
+/* Desktop-only adjustment for FIRST image (p1.jpg) */
+@media (min-width: 768px) {
+  .carousel-track img:first-child {
+    object-position: center 80%;
+  }
+}
+
+
 /* --------------------------
    Responsive
 --------------------------- */
