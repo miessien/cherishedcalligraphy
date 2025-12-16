@@ -29,34 +29,43 @@
         <br>I’d love to hear from you.<br>If forms aren't your thing, feel free to send a message to mirabelle@cherishedcalligraphy.com.
       </p>
 
-      <!-- Contact Form (Formspree) -->
-      <form class="contact-form"
-            action="https://formspree.io/f/xgvgzjva"
-            method="POST">
+  <!-- Contact Form (Netlify) -->
+  <form class="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action="/success.html">
 
-        <label>
-          Name
-          <input type="text" name="name" required>
-        </label>
+    <!-- Netlify required hidden input -->
+    <input type="hidden" name="form-name" value="contact">
 
-        <label>
-          Email
-          <input type="email" name="email" required>
-        </label>
+    <!-- Honeypot field (hidden from users) -->
+    <p style="display:none;">
+      <label>
+        Don’t fill this out if you’re human:
+        <input name="bot-field">
+      </label>
+    </p>
 
-        <label>
-          Message
-          <textarea name="message" rows="5" required></textarea>
-        </label>
+    <label>
+      Name
+      <input type="text" name="name" required>
+    </label>
 
-        <!-- Redirect to success page -->
-        <input type="hidden" name="_redirect" value="/success.html">
+    <label>
+      Email
+      <input type="email" name="email" required>
+    </label>
 
-        <!-- Basic spam protection -->
-        <input type="text" name="_gotcha" style="display:none">
+    <label>
+      Message
+      <textarea name="message" rows="5" required></textarea>
+    </label>
 
-        <button type="submit">Send Message</button>
-      </form>
+    <button type="submit">Send Message</button>
+  </form>
+
       
       <p class="form-legal">
         This form is protected from spam and processed securely.
