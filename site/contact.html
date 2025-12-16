@@ -15,6 +15,12 @@
 </head>
 
 <body>
+  <!-- Netlify build-time form detection -->
+  <form name="contact" netlify hidden>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <textarea name="message"></textarea>
+  </form>
 
   <!-- Header -->
   <div data-include="partials/header.html"></div>
@@ -84,6 +90,5 @@
   <!-- Scripts -->
   <script src="js/include.js"></script>
   <script src="js/menu.js"></script>
-
 </body>
 </html>
