@@ -5,27 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Cherished Calligraphy</title>
 
-  <!-- Google Font Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-
-  <!-- Header -->
-  <div data-include="partials/header.html"></div>
-
-  <!-- Netlify build-time form detection -->
-  <form name="contact-hidden" netlify hidden>
+  <!-- Hidden form for Netlify build-time detection -->
+  <form name="contact" netlify hidden>
     <input type="text" name="name">
     <input type="email" name="email">
     <textarea name="message"></textarea>
   </form>
+
+  <!-- Header -->
+  <div data-include="partials/header.html"></div>
 
   <!-- CONTACT SECTION -->
   <section class="contact">
@@ -37,44 +33,40 @@
         <br>I’d love to hear from you.<br>If forms aren't your thing, feel free to send a message to mirabelle@cherishedcalligraphy.com.
       </p>
 
-  <!-- Contact Form (Netlify) -->
-  <form class="contact-form"
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        action="/success.html">
+      <!-- Actual Netlify Form -->
+      <form class="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            action="/success.html">
 
-    <!-- Netlify required hidden input -->
-    <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="form-name" value="contact">
 
-    <!-- Honeypot field (hidden from users) -->
-    <p style="display:none;">
-      <label>
-        Don’t fill this out if you’re human:
-        <input name="bot-field">
-      </label>
-    </p>
+        <p style="display:none;">
+          <label>Don’t fill this out if you’re human:
+            <input name="bot-field">
+          </label>
+        </p>
 
-    <label>
-      Name
-      <input type="text" name="name" required>
-    </label>
+        <label>
+          Name
+          <input type="text" name="name" required>
+        </label>
 
-    <label>
-      Email
-      <input type="email" name="email" required>
-    </label>
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
 
-    <label>
-      Message
-      <textarea name="message" rows="5" required></textarea>
-    </label>
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
 
-    <button type="submit">Send Message</button>
-  </form>
+        <button type="submit">Send Message</button>
+      </form>
 
-      
       <p class="form-legal">
         This form is protected from spam and processed securely.
         <br>By submitting, you agree to the 
@@ -82,14 +74,11 @@
         <a href="./policies.html">Terms of Service</a>.
       </p>
 
-
     </div>
   </section>
 
-  <!-- Footer -->
   <div data-include="partials/footer.html"></div>
 
-  <!-- Scripts -->
   <script src="js/include.js"></script>
   <script src="js/menu.js"></script>
 </body>
