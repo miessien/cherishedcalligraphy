@@ -113,8 +113,10 @@ body {
 }
 
 .logo a {
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   color: #000;
   text-decoration: none;
   white-space: nowrap;
@@ -258,20 +260,6 @@ a:hover {
   color: #fff;
 }
 
-/* Overlay for readability */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-  z-index: 1;
-}
-
-/* Content wrapper */
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
 /* Heading */
 .hero h1 {
   font-size: 3.2rem;
@@ -343,6 +331,46 @@ a:hover {
 .intro-text {
   font-size: 1.1rem;
   line-height: 1.8;
+}
+
+/* ===========================
+   HOME INTRO (Editorial)
+=========================== */
+.home-intro {
+  max-width: 800px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.intro-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  color: #BAA898;
+  margin-bottom: 1rem;
+}
+
+.home-intro h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+@media (max-width: 600px) {
+  .home-intro {
+    margin: 4rem auto;
+  }
+
+  .home-intro h2 {
+    font-size: 1.8rem;
+  }
 }
 
 
