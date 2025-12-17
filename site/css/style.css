@@ -73,28 +73,7 @@ body {
   padding: 0 2rem;
 }
 
-/* ===========================
-   HERO SECTION (old main)
-=========================== */
-main {
-  padding: 4rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-main h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-main p {
-  font-size: 1.25rem;
-  margin: 0;
-}
 
 /* ===========================
    HEADER
@@ -266,35 +245,34 @@ a:hover {
 }
 
 /* ===========================
-   HERO SECTION (with background image)
+   HERO SECTION
 =========================== */
 .hero {
   position: relative;
   padding: 8rem 2rem;
   text-align: center;
-  background-image: url('../images/hero.jpg'); /* make sure your file path matches */
+  background-image: url('../images/hero.jpg');
   background-size: cover;
-  background-color: #000;
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
 }
 
 /* Overlay for readability */
-.hero::before {
-  content: "";
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25); /* darken or lighten if needed */
+  background: rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
-.hero h1,
-.hero .tagline {
+/* Content wrapper */
+.hero-content {
   position: relative;
   z-index: 2;
 }
 
+/* Heading */
 .hero h1 {
   font-size: 3.2rem;
   font-weight: 700;
@@ -302,23 +280,69 @@ a:hover {
   letter-spacing: 1px;
 }
 
-.hero .tagline {
+/* Tagline */
+.hero-content p {
   font-size: 1.25rem;
   max-width: 650px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
+/* CTA Button */
+.hero-button {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--accent); /* #C9B8A8 */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px; /* rounded rectangle, not pill */
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-button:hover {
+  color: #000;
+}
+
+/* Mobile */
 @media (max-width: 600px) {
   .hero {
     padding: 6rem 1.5rem;
   }
+
   .hero h1 {
     font-size: 2.4rem;
   }
-  .hero .tagline {
+
+  .hero-content p {
     font-size: 1.1rem;
   }
+}
+
+.home-intro {
+  max-width: 800px;
+  margin: 6rem auto;
+  text-align: center;
+}
+
+.intro-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  color: #BAA898;
+  margin-bottom: 1rem;
+}
+
+.home-intro h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 
@@ -386,10 +410,45 @@ a:hover {
   min-width: 280px;
 }
 
-.about-photo img {
+/* Circular photo + gold ring */
+.about-photo-wrapper {
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+  position: relative;
+  overflow:hidden;
+}
+
+.about-photo-img {
   width: 100%;
-  border-radius: 8px;
+  height: 100%;
   object-fit: cover;
+  object-position: 30% center;
+  border-radius: 50%;
+  display: block;
+}
+
+.gold-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 32px);
+  height: calc(100% + 32px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+  .about-photo-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+
+  .gold-circle {
+    width: calc(100% + 28px);
+    height: calc(100% + 28px);
+  }
 }
 
 /* ===========================
@@ -516,7 +575,6 @@ a:hover {
   }
 }
 
-
 /* ===========================
    BOOK BUTTON
 =========================== */
@@ -547,10 +605,6 @@ a:hover {
 .book-button:active {
   transform: translateY(0);
 }
-
-
-
-
 
 /* ===========================
    PORTFOLIO
@@ -758,3 +812,50 @@ a:hover {
   text-decoration: underline;
 }
 
+/* --- FIX CONTACT FORM LAYOUT --- */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;   /* stack fields vertically */
+  gap: 1rem;                /* spacing between fields */
+  max-width: 600px;         /* keeps form narrow + centered */
+  margin: 2rem auto;        /* center horizontally */
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;   /* label on top, input underneath */
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.contact-form button {
+  width: fit-content;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background: #c9b8a8; /* your champagne accent */
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.contact-form button:hover {
+  opacity: 0.85;
+}
+
+.contact-form button {
+  display: block;
+  margin: 1.5rem auto 0;
+}
