@@ -6,8 +6,16 @@
 :root {
   --accent: #C9B8A8;
   --accent-light: #E8E1DA;
+  --navy: #1F2A44;
   --background-color: #f7f7f7;
   --canvas-color: #fff;
+}
+
+html {
+  background-color: var(--navy);
+}
+body {
+  background-color: #ffffff;
 }
 
 /* ===========================
@@ -21,45 +29,283 @@
   color: var(--accent);
 }
 
+h2 {
+  color: var(--navy);
+}
+
+.home-anchor {
+  font-family: "Playfair Display", serif; /* or your brand serif */
+  font-size: 2.75rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+.home-manifesto {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  line-height: 1.35;
+  color: var(--navy);
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.home-support {
+  font-family: "Playfair Display", serif; /* or your body font */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.home-footnote {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(31,42,68,0.7);
+  text-align: center;
+}
+
+
+
 /* ===========================
    GLOBAL LAYOUT
 =========================== */
+
+.section {
+  border-top: 1px solid rgba(31,42,68,0.15);
+  padding-top: 4rem;
+}
+.section-soft {
+  background: var(--accent-light);
+  padding: 5rem 0;
+}
+
+.page-header {
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  background: var(--canvas-color);
+  background-color: #fff;
+}
+
+.page-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0;
+}
+
+
 
 /* ===========================
    HEADER / NAV
 =========================== */
 
+.site-header .logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.site-header nav a {
+  font-family: "Playfair Display", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.site-header nav a:hover {
+  color: var(--accent);
+}
+
+.site-header nav ul {
+  gap: 2rem;
+}
+
+.site-header nav ul li a {
+  font-family: "Playfair Display", serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
 /* ===========================
    HERO
 =========================== */
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: white;
+  margin-bottom: 1.5rem;
+
+}
+
+.hero p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+  color: white;
+  opacity: 0.9;
+}
 
 /* ===========================
    HOME
 =========================== */
 
+.home-manifesto {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  line-height: 1.35;
+  color: var(--navy);
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.home-support {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+
 /* ===========================
    ABOUT
 =========================== */
+/* ABOUT ON HOME – TWO COLUMN */
 
-/* ===========================
-   SERVICES
-=========================== */
+.home-about-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.home-about-photo {
+  flex: 1;
+  max-width: 360px;
+}
+
+.home-about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+}
+
+.home-about-text {
+  text-align: left;
+  flex: 2;
+}
+
+.home-about-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.home-about-text p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  color: rgba(31, 42, 68, 0.85);
+  text-align: left;
+  font-weight: 500;
+}
+
+.home-about-text .button {
+  margin-top: 1rem;
+  
+}
+
+.home-about-cta {
+  margin-top: 3rem auto 0;
+  text-align: center;
+  max-width: 480px;
+}
+
+.home-about-photo img {
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+
+
+
+@media (max-width: 768px) {
+  .home-about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-about-photo {
+    max-width: 220px;
+  }
+  
+  .home-about-text h2 {
+    text-align: center;
+  }
+}
+
 
 /* ===========================
    PORTFOLIO
 =========================== */
+.portfolio {
+  background: #fff;
+}
 
-/* ===========================
-   CONTACT
-=========================== */
 
 /* ===========================
    FOOTER
 =========================== */
 
-/* ===========================
-   UTILITIES / OVERRIDES
-=========================== */
+/* Footer */
+.site-footer {
+  background-color: var(--navy);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.site-footer p,
+.site-footer a {
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.home-footnote {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: rgba(31,42,68,0.65);
+  text-align: center;
+}
+
+
 
 
 
@@ -132,7 +378,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair Display', serif;
   color: #000;
   background: var(--background-color);
   -webkit-font-smoothing: antialiased;
@@ -169,12 +415,14 @@ body {
 .nav-left {
   display: flex;
   gap: 2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
 }
 
 .nav-left a {
   text-decoration: none;
   color: #444;
-  font-size: 0.95rem;
+  font-size: 1.5 rem;
   letter-spacing: 1px;
   transition: color 0.2s ease;
 }
@@ -412,13 +660,7 @@ a:hover {
   color: #fff;
 }
 
-/* Heading */
-.hero h1 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
+
 
 /* Tagline */
 .hero-content p {
@@ -557,7 +799,7 @@ a:hover {
   background: #ffffff;
   border-top: 1px solid #eee;
   padding: 2rem 1rem;
-  margin-top: 4rem;
+  margin-top: 0;
 }
 
 .footer-content {
@@ -569,8 +811,8 @@ a:hover {
   line-height: 1.8;
 }
 
-.footer-content a {
-  color: #555;
+.footer-content a, .footer-content p {
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -814,33 +1056,28 @@ a:hover {
    PORTFOLIO
 =========================== */
 .portfolio {
-  padding: 5rem 2rem;
-  background: #fff;
+  padding: 4rem 0;
 }
 
 .portfolio-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.portfolio h1 {
-  text-align: center;
-  font-size: 2.6rem;
-  margin-bottom: 3rem;
+  max-width: none;
+  padding: 0 2rem;
 }
 
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .portfolio-grid img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
-  border-radius: 8px;
+  display: block;
+  border-radius: 0;
 }
+
 
 @media (max-width: 700px) {
   .portfolio-grid {
@@ -879,7 +1116,7 @@ a:hover {
 }
 
 .contact-form label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
   font-size: 0.95rem;
   color: #333;
@@ -893,7 +1130,7 @@ a:hover {
   border: 1.5px solid #e5e5e5;
   border-radius: 8px;
   background: #fff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem;
   transition: all 0.25s ease;
 }
@@ -918,7 +1155,7 @@ a:hover {
   color: #fff;
   border: none;
   padding: 1rem 2rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem;
   border-radius: 50px;
   cursor: pointer;
@@ -1063,3 +1300,11 @@ a:hover {
   display: block;
   margin: 1.5rem auto 0;
 }
+
+/* Footer */
+.site-footer {
+  background-color: #1F2A44; /* navy */
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
