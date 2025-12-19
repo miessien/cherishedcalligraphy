@@ -3,79 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cherished Calligraphy | Dallas Calligrapher and Engraver</title>
 
-  <!-- Google Font Montserrat & Playfair Display-->
+  <title>Cherished Calligraphy | Dallas Calligrapher & Engraver</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css?v=3.0" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <!-- Header (Loaded via Partial) -->
-  <div id="header-container" data-include="partials/header.html"></div>
 
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="hero-overlay"></div>
+  <!-- HEADER -->
+  <div data-include="partials/header.html"></div>
 
-  <div class="hero-content">
-    <h1>Calligraphy &amp; Engraving, Elevated</h1>
-    <p>Artistry for every celebration.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Calligraphy & Engraving, Elevated</h1>
+    <p class="tagline">Artistry for every celebration.</p>
 
-    <a href="services.html" class="button hero-button">
-      View Services
-    </a>
-  </div>
-</section>
+    <a href="services.html" class="button hero-button">View Services</a>
+  </section>
 
-<section class="home-intro">
-  <p class="intro-eyebrow">What I Do</p>
+  <!-- HOME EDITORIAL CONTENT -->
+  <div class="home-editorial">
 
-  <h2>
-    Handcrafted calligraphy and engraving for
-    weddings, events, and meaningful celebrations
-  </h2>
+    <!-- WHAT I DO -->
+    <section class="home-what">
+      <p class="intro-eyebrow">What I Do</p>
 
-  <p class="intro-text">
-    Cherished Calligraphy provides refined, hand-lettered details for
-    intimate gatherings and large-scale events — from custom place cards
-    to live engraving experiences.
-  </p>
-</section>
+      <h2>
+        Handcrafted calligraphy and engraving for
+        meaningful celebrations
+      </h2>
 
-<section class="home-services">
-  <h2>Services</h2>
+      <div class="home-what-grid">
+        <div>
+          <h3>In-Studio Commissions</h3>
+          <p>
+            Custom place cards, holiday pieces, keepsakes,
+            and handwritten details created with care.
+          </p>
+        </div>
 
-  <div class="home-services-grid">
-    <div class="service-item">
-      <h3>Live Events</h3>
-      <p>
-        On-site calligraphy and engraving for weddings,
-        brand activations, and corporate events.
+        <div>
+          <h3>On-Site Calligraphy & Engraving</h3>
+          <p>
+            Live personalization for weddings, brand activations,
+            and elevated events.
+          </p>
+        </div>
+      </div>
+
+      <a href="services.html" class="button">View Services</a>
+    </section>
+
+    <!-- ABOUT (ON HOME) -->
+    <section class="home-about">
+      <h2>About</h2>
+
+      <p class="home-about-text">
+        Cherished Calligraphy is led by Mirabelle Essien, a Dallas-based calligrapher
+        specializing in thoughtfully crafted details for weddings, brand activations,
+        and intimate celebrations. Every piece is created with intention, care,
+        and respect for the moment it represents.
       </p>
-    </div>
 
-    <div class="service-item">
-      <h3>In-Studio Work</h3>
-      <p>
-        Custom place cards, holiday pieces,
-        keepsakes, and personalized details.
-      </p>
-    </div>
+      <a href="contact.html" class="button">Work With Me</a>
+    </section>
+
+    <!-- BRAND ACCENT -->
+    <section class="home-accent">
+      <p>Thoughtful details, beautifully written.</p>
+    </section>
+
   </div>
 
-  <a href="services.html" class="button">View Services</a>
-</section>
-
-  <!-- Footer (Loaded via Partial) -->
+  <!-- FOOTER -->
   <div data-include="partials/footer.html"></div>
 
-  <!-- Scripts SHOULD ALWAYS BE HERE -->
+  <!-- SCRIPTS -->
   <script src="js/include.js"></script>
   <script src="js/menu.js"></script>
 

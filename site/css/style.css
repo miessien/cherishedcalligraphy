@@ -1,5 +1,7 @@
+/*  This stylesheet is stable as of Dec 19, 2025. Avoid large refactors during active design work. */
+
 /* ===========================
-   ROOT COLORS
+   VARIABLES & RESET (Root colors, 
 =========================== */
 :root {
   --accent: #C9B8A8;
@@ -9,14 +11,83 @@
 }
 
 /* ===========================
-   GLOBAL ACCENT APPLICATIONS
+   GLOBAL TYPOGRAPHY
 =========================== */
+
 .about h1,
 .contact h1,
 .services h1,
 .portfolio h1 {
   color: var(--accent);
 }
+
+/* ===========================
+   GLOBAL LAYOUT
+=========================== */
+
+/* ===========================
+   HEADER / NAV
+=========================== */
+
+/* ===========================
+   HERO
+=========================== */
+
+/* ===========================
+   HOME
+=========================== */
+
+/* ===========================
+   ABOUT
+=========================== */
+
+/* ===========================
+   SERVICES
+=========================== */
+
+/* ===========================
+   PORTFOLIO
+=========================== */
+
+/* ===========================
+   CONTACT
+=========================== */
+
+/* ===========================
+   FOOTER
+=========================== */
+
+/* ===========================
+   UTILITIES / OVERRIDES
+=========================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!             SEPARATION            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!              */
+
+
+
+
+
+
+
+/* ===========================
+   GLOBAL ACCENT APPLICATIONS
+=========================== */
 
 .contact-form input:focus,
 .contact-form textarea:focus {
@@ -267,6 +338,63 @@ a:hover {
 .button:hover,
 .contact-form button:hover {
   color: #000;
+}
+
+/* ===========================
+   HOME – EDITORIAL WRAPPER
+=========================== */
+.home-editorial {
+  background: #fff;
+}
+
+/* ===========================
+   HOME – WHAT I DO
+=========================== */
+.home-what {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.home-what h2 {
+  max-width: 700px;
+  margin: 1.5rem auto 3rem;
+}
+
+.home-what-grid {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 4rem;
+}
+
+.home-what h3 {
+  margin-bottom: 0.75rem;
+}
+
+/* ===========================
+   HOME – ABOUT (ON HOME)
+=========================== */
+.home-about {
+  background: #f7f7f7;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.home-about-text {
+  max-width: 720px;
+  margin: 2rem auto 3rem;
+  line-height: 1.8;
+}
+
+/* ===========================
+   HOME – BRAND ACCENT
+=========================== */
+.home-accent {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-style: italic;
+  color: #BAA898;
 }
 
 
