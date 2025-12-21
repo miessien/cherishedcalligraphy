@@ -1,8 +1,10 @@
-/*  This stylesheet is stable as of Dec 19, 2025. Avoid large refactors during active design work. */
+/* Stable as of 12/20/2025 */
 
-/* ===========================
-   VARIABLES & RESET (Root colors, 
-=========================== */
+
+/* ==================================================
+   1. VARIABLES & RESET: CSS variables (colors, fonts), box-sizing reset, base html/body setup
+================================================== */
+
 :root {
   --accent: #C9B8A8;
   --accent-light: #E8E1DA;
@@ -14,13 +16,18 @@
 html {
   background-color: var(--navy);
 }
-body {
-  background-color: #ffffff;
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* ===========================
-   GLOBAL TYPOGRAPHY
-=========================== */
+/* ==================================================
+   2. BASE / GLOBAL TYPOGRAPHY: h1–h6 font-family, sizes, weights, p, a, small, strong, em, text color defaults
+================================================== */
 
 .about h1,
 .contact h1,
@@ -33,47 +40,22 @@ h2 {
   color: var(--navy);
 }
 
-.home-anchor {
-  font-family: "Playfair Display", serif; /* or your brand serif */
-  font-size: 2.75rem;
+body {
+  font-family: 'Playfair Display', serif;
+  color: #000;
+  background: var(--background-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.contact-email {
   font-weight: 500;
-  color: var(--navy);
-  margin-bottom: 1.5rem;
 }
 
-.home-manifesto {
-  font-family: "Playfair Display", serif;
-  font-size: 2.6rem;
-  line-height: 1.35;
-  color: var(--navy);
-  max-width: 900px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
+/* ==================================================
+   3. BASE / GLOBAL LAYOUT (body background, shared spacing rules, .page-wrapper, .container patterns)
+================================================== */
 
-.home-support {
-  font-family: "Playfair Display", serif; /* or your body font */
-  font-size: 1.1rem;
-  line-height: 1.8;
-  max-width: 780px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-.home-footnote {
-  font-style: italic;
-  font-size: 0.9rem;
-  color: rgba(31,42,68,0.7);
-  text-align: center;
-}
-
-
-
-/* ===========================
-   GLOBAL LAYOUT
-=========================== */
-
-.section {
+.home-editorial .section {
   border-top: 1px solid rgba(31,42,68,0.15);
   padding-top: 4rem;
 }
@@ -82,40 +64,21 @@ h2 {
   padding: 5rem 0;
 }
 
-.page-header {
-  padding: 6rem 2rem 4rem;
-  text-align: center;
-  background: var(--canvas-color);
-  background-color: #fff;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.page-header h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.6rem;
-  font-weight: 500;
-  color: var(--navy);
-  margin: 0;
-}
-
-
-
-/* ===========================
-   HEADER / NAV
-=========================== */
+/* ==================================================
+   4. HEADER / NAVIGATION: .site-header, logo styles, desktop nav links, mobile menu + hamburger, nav icons
+================================================== */
 
 .site-header .logo {
   font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: var(--navy);
-}
-
-.site-header nav a {
-  font-family: "Playfair Display", serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
   color: var(--navy);
 }
 
@@ -136,265 +99,6 @@ h2 {
   color: var(--navy);
 }
 
-/* ===========================
-   HERO
-=========================== */
-
-.hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  font-weight: 500;
-  line-height: 1.25;
-  color: white;
-  margin-bottom: 1.5rem;
-
-}
-
-.hero p {
-  font-family: "Playfair Display", serif;
-  font-size: 1.4rem;
-  font-style: italic;
-  line-height: 1.6;
-  max-width: 640px;
-  margin: 0 auto;
-  color: white;
-  opacity: 0.9;
-}
-
-/* ===========================
-   HOME
-=========================== */
-
-.home-manifesto {
-  font-family: "Playfair Display", serif;
-  font-size: 2.6rem;
-  line-height: 1.35;
-  color: var(--navy);
-  max-width: 900px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-.home-support {
-  font-family: "Playfair Display", serif;
-  font-size: 1.35rem;
-  line-height: 1.6;
-  max-width: 780px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-
-/* ===========================
-   ABOUT
-=========================== */
-/* ABOUT ON HOME – TWO COLUMN */
-
-.home-about-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  gap: 4rem;
-  align-items: center;
-}
-
-.home-about-photo {
-  flex: 1;
-  max-width: 360px;
-}
-
-.home-about-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  display: block;
-}
-
-.home-about-text {
-  text-align: left;
-  flex: 2;
-}
-
-.home-about-text h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.2rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  margin-bottom: 1.5rem;
-}
-
-.home-about-text p {
-  font-family: "Playfair Display", serif;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  max-width: 520px;
-  margin-bottom: 2.5rem;
-  color: rgba(31, 42, 68, 0.85);
-  text-align: left;
-  font-weight: 500;
-}
-
-.home-about-text .button {
-  margin-top: 1rem;
-  
-}
-
-.home-about-cta {
-  margin-top: 3rem auto 0;
-  text-align: center;
-  max-width: 480px;
-}
-
-.home-about-photo img {
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-}
-
-
-
-
-@media (max-width: 768px) {
-  .home-about-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .home-about-photo {
-    max-width: 220px;
-  }
-  
-  .home-about-text h2 {
-    text-align: center;
-  }
-}
-
-
-/* ===========================
-   PORTFOLIO
-=========================== */
-.portfolio {
-  background: #fff;
-}
-
-
-/* ===========================
-   FOOTER
-=========================== */
-
-/* Footer */
-.site-footer {
-  background-color: var(--navy);
-  color: rgba(255, 255, 255, 0.85);
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.site-footer p,
-.site-footer a {
-  font-family: "Playfair Display", serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-}
-
-.home-footnote {
-  font-family: "Playfair Display", serif;
-  font-style: italic;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: rgba(31,42,68,0.65);
-  text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!             SEPARATION            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!              */
-
-
-
-
-
-
-
-/* ===========================
-   GLOBAL ACCENT APPLICATIONS
-=========================== */
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--accent);
-  outline: none;
-}
-
-.footer-content a:hover {
-  color: var(--accent);
-}
-
-.book-button {
-  background: #000;
-  color: #fff;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
-}
-
-.book-button:hover {
-  background: var(--accent);
-  color: #000;
-  transform: translateY(-2px);
-}
-
-.contact-form button:hover {
-  background: var(--accent);
-  color: #000;
-}
-
-.bg-accent-soft {
-  background: var(--accent-light);
-}
-
-/* ===========================
-   BASE / RESET
-=========================== */
-*,
-*:after,
-*:before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Playfair Display', serif;
-  color: #000;
-  background: var(--background-color);
-  -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-
-
-/* ===========================
-   HEADER
-=========================== */
 .site-header {
   background: white;
   border-bottom: 1px solid #eee;
@@ -412,33 +116,33 @@ body {
   min-height: 70px;
 }
 
-.nav-left {
-  display: flex;
-  gap: 2rem;
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
-}
-
-.nav-left a {
-  text-decoration: none;
-  color: #444;
-  font-size: 1.5 rem;
-  letter-spacing: 1px;
-  transition: color 0.2s ease;
-}
-
-.nav-left a:hover {
-  color: var(--accent);
-}
-
 .logo a {
   font-family: 'Playfair Display', serif;
   font-size: 1.7rem;
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: #000;
+  color: var(--navy);
   text-decoration: none;
   white-space: nowrap;
+}
+
+.nav-left {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-left a {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 0.9rem;
+  letter-spacing: 0.11px;
+  transition: color 0.2s ease;
+}
+
+.nav-left a:hover {
+  color: var(--accent);
 }
 
 .nav-icons {
@@ -457,14 +161,8 @@ body {
   color: var(--accent);
 }
 
-/* Global link hover */
-a:hover {
-  color: var(--accent);
-}
+/** Mobile Navigation **/
 
-/* ===========================
-   HAMBURGER
-=========================== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -484,9 +182,6 @@ a:hover {
   display: block;
 }
 
-/* ===========================
-   MOBILE MENU
-=========================== */
 .mobile-menu {
   display: none;
   position: fixed;
@@ -525,79 +220,194 @@ a:hover {
   overflow: hidden;
 }
 
-/* ===========================
-   RESPONSIVE NAV
-=========================== */
-@media (max-width: 900px) {
-
-  .nav-left,
-  .nav-icons {
-    display: none;
-  }
-
-  .nav-container {
-    justify-content: center;
-    position: relative;
-  }
-
-  .logo a {
-    font-size: 1.6rem;
-  }
-
-  .hamburger {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    z-index: 2001;
-  }
-
-  .mobile-menu {
-    top: 70px;
-    width: 100%;
-    padding: 2rem 1.5rem;
-  }
-
-  .mobile-menu a {
-    font-size: 1.6rem;
-    text-align: right;
-  }
+/* Mobile IG Icon */
+.mobile-menu .mobile-ig-icon {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
-/* ===========================
-   BUTTONS (Global)
-=========================== */
-.button,
-.contact-form button {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  background-color: var(--accent); /* #C9B8A8 */
-  color: #fff;
+.mobile-menu .mobile-ig-icon img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-menu .mobile-ig-icon img:hover {
+  opacity: 1;
+}
+
+/* ==================================================
+   5. FOOTER: .site-footer, footer typography
+================================================== */
+
+.site-footer {
+  background-color: var(--navy);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.site-footer p,
+.site-footer a {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.04em;
+  color: #ffffff;
   text-decoration: none;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  font-size: 1rem;
 }
 
-.button:hover,
-.contact-form button:hover {
+.footer-content a:hover {
+  color: var(--accent);
+}
+
+.footer-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.footer-icon {
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+}
+
+.footer-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-icon:hover {
+  color: var(--accent);
+}
+
+/* ==================================================
+   6. SHARED PAGE SECTIONS: shared section padding, shared h1 spacing on inner pages
+================================================== */
+
+section > :first-child {
+  margin-top: 0;
+}
+
+.page-header {
+  padding: 5rem 2rem 2.5rem;
+  text-align: center;
+  background: var(--canvas-color);
+  background-color: #fff;
+}
+
+.page-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0;
+  margin-bottom: 1.25rem;
+}
+
+.page-header p {
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* ==================================================
+   7. HOME PAGE
+================================================== */
+/* 7.1 Hero */
+
+.home-anchor {
+  font-family: "Playfair Display", serif; /* or your brand serif */
+  font-size: 2.75rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: white;
+  margin-bottom: 1.5rem;
+
+}
+
+.hero p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+  color: white;
+  opacity: 0.9;
+}
+
+.hero {
+  position: relative;
+  padding: 8rem 2rem;
+  text-align: center;
+  background-image: url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+/* Tagline */
+.hero-content p {
+  font-size: 1.25rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* CTA Button */
+.hero-button {
+  margin-top: 2.5rem;
+}
+
+.hero-button:hover {
   color: #000;
 }
 
-/* ===========================
-   HOME – EDITORIAL WRAPPER
-=========================== */
-.home-editorial {
-  background: #fff;
+/* 7.2 Home Intro / Manifesto */
+
+.home-manifesto {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  line-height: 1.35;
+  color: var(--navy);
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
 }
 
-/* ===========================
-   HOME – WHAT I DO
-=========================== */
+.home-support {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
 .home-what {
   padding: 6rem 2rem;
   text-align: center;
@@ -620,107 +430,6 @@ a:hover {
   margin-bottom: 0.75rem;
 }
 
-/* ===========================
-   HOME – ABOUT (ON HOME)
-=========================== */
-.home-about {
-  background: #f7f7f7;
-  padding: 6rem 2rem;
-  text-align: center;
-}
-
-.home-about-text {
-  max-width: 720px;
-  margin: 2rem auto 3rem;
-  line-height: 1.8;
-}
-
-/* ===========================
-   HOME – BRAND ACCENT
-=========================== */
-.home-accent {
-  padding: 4rem 2rem;
-  text-align: center;
-  font-style: italic;
-  color: #BAA898;
-}
-
-
-/* ===========================
-   HERO SECTION
-=========================== */
-.hero {
-  position: relative;
-  padding: 8rem 2rem;
-  text-align: center;
-  background-image: url('../images/hero.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #fff;
-}
-
-
-
-/* Tagline */
-.hero-content p {
-  font-size: 1.25rem;
-  max-width: 650px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* CTA Button */
-.hero-button {
-  margin-top: 2.5rem;
-}
-
-.hero-button:hover {
-  color: #000;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .hero {
-    padding: 6rem 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-}
-
-.home-intro {
-  max-width: 800px;
-  margin: 6rem auto;
-  text-align: center;
-}
-
-.intro-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.75rem;
-  color: #BAA898;
-  margin-bottom: 1rem;
-}
-
-.home-intro h2 {
-  font-size: 2.4rem;
-  margin-bottom: 1.5rem;
-}
-
-.intro-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* ===========================
-   HOME INTRO (Editorial)
-=========================== */
 .home-intro {
   max-width: 800px;
   margin: 6rem auto;
@@ -748,158 +457,175 @@ a:hover {
   color: #444;
 }
 
-@media (max-width: 600px) {
-  .home-intro {
-    margin: 4rem auto;
-  }
 
-  .home-intro h2 {
-    font-size: 1.8rem;
-  }
+/* 7.3 Home About */
+
+.home-about-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
 }
 
-/* ===========================
-   HOME SERVICES PREVIEW
-=========================== */
-.home-services {
+.home-about-photo {
+  flex: 1;
+  max-width: 360px;
+}
+
+.home-about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  border: 2px solid var(--accent);
+}
+
+.home-about-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.home-about-text p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  color: rgba(31, 42, 68, 0.85);
+  text-align: left;
+  font-weight: 500;
+}
+
+.home-about-cta {
+  margin: 3rem auto 0;
+  text-align: center;
+  max-width: 480px;
+}
+
+.home-about {
   background: #f7f7f7;
   padding: 6rem 2rem;
   text-align: center;
 }
 
-.home-services h2 {
-  font-size: 2.4rem;
-  margin-bottom: 3rem;
-}
+/* 7.4 Home Supporting Elements, Accents */
 
-.home-services-grid {
-  max-width: 900px;
-  margin: 0 auto 3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 3rem;
-}
-
-.service-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
-}
-
-.service-item p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #444;
-}
-
-
-/* ===========================
-   FOOTER
-=========================== */
-.site-footer {
-  background: #ffffff;
-  border-top: 1px solid #eee;
-  padding: 2rem 1rem;
-  margin-top: 0;
-}
-
-.footer-content {
-  max-width: 900px;
-  margin: 0 auto;
+.home-footnote {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: rgba(31,42,68,0.65);
   text-align: center;
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.8;
 }
 
-.footer-content a, .footer-content p {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-/* ===========================
-   ABOUT
-=========================== */
-.about {
-  padding: 5rem 2rem;
+.home-editorial {
   background: #fff;
 }
 
-.about-container {
-  max-width: 1100px;
-  margin: 0 auto;
+.home-accent {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-style: italic;
+  color: #BAA898;
 }
 
-.about h1 {
+/* ==================================================
+   8. SERVICES PAGE
+================================================== */
+
+.services {
+  padding: 0 2rem 5rem;
+  background: #fff;
+}
+
+.services-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.services h1 {
+  grid-column: 1 / -1; /* makes heading span both columns */
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
 }
 
-.about-content {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  flex-wrap: wrap;
+.service-block {
+  text-align: center;
+  margin-bottom: 0;
 }
 
-.about-text {
-  flex: 1;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
+.service-images {
+  margin-bottom: 1.5rem;
 }
 
-.about-text p { margin-bottom: 1.5rem; }
-
-.about-photo {
-  flex: 1;
-  min-width: 280px;
-}
-
-/* Circular photo + gold ring */
-.about-photo-wrapper {
-  width: 320px;
-  height: 320px;
-  margin: 0 auto;
-  position: relative;
-  overflow:hidden;
-}
-
-.about-photo-img {
+.service-images img {
   width: 100%;
-  height: 100%;
+  border-radius: 12px;
   object-fit: cover;
-  object-position: 30% center;
-  border-radius: 50%;
+  aspect-ratio: 4 / 3;
+}
+
+.service-block h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-caption {
+  max-width: 500px;
+  margin: 0 auto;
+  color: #444;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.book-button-wrapper {
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+/* ==================================================
+   9. PORTFOLIO PAGE
+================================================== */
+
+.portfolio {
+  background: var(--canvas-color);
+  padding: 0 0 4rem;
+}
+
+.portfolio-container {
+  max-width: none;
+  padding: 0 2rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.portfolio-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
   display: block;
+  border-radius: 0;
 }
 
-.gold-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: calc(100% + 32px);
-  height: calc(100% + 32px);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0.9;
-}
+/* ==================================================
+   10. CONTACT PAGE
+================================================== */
 
-@media (max-width: 600px) {
-  .about-photo-wrapper {
-    width: 240px;
-    height: 240px;
-  }
-
-  .gold-circle {
-    width: calc(100% + 28px);
-    height: calc(100% + 28px);
-  }
-}
-
-/* ===========================
-   CONTACT
-=========================== */
 .contact {
   padding: 5rem 2rem;
   background: #fff;
@@ -949,97 +675,79 @@ a:hover {
   transition: border 0.2s ease;
 }
 
-.contact-form button {
-  padding: 1rem 1.5rem;
-  background: #000;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  margin-top: 1rem;
+/* ==================================================
+   11. FORMS (GLOBAL): inputs, labels, buttons
+================================================== */
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
 }
 
-/* ===========================
-   SERVICES
-=========================== */
-.services {
-  padding: 5rem 2rem;
-  background: #fff;
+.contact-form button:hover {
+  background: var(--accent);
+  color: #000;
 }
 
-.services-container {
-  max-width: 1100px;
-  margin: 0 auto;
+/* ==================================================
+   12. UTILITIES AND OVERRIDES
+================================================== */
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+.bg-accent-soft {
+  background: var(--accent-light);
 }
 
-.services h1 {
-  grid-column: 1 / -1; /* makes heading span both columns */
-  text-align: center;
-  font-size: 2.6rem;
-  margin-bottom: 3rem;
-}
-
-.service-block {
-  text-align: center;
-}
-
-.service-images {
-  margin-bottom: 1.5rem;
-}
-
-.service-images img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-}
-
-.service-block h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.75rem;
-}
-
-.service-caption {
-  max-width: 500px;
-  margin: 0 auto;
-  color: #444;
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .services-container {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-/* ===========================
-   BOOK BUTTON
-=========================== */
-
-.book-button-wrapper {
-  display: flex;
-  justify-content: center;
-  grid-column: 1 / -1;
-  margin-top: 2rem;
-}
+/* ==================================================
+   13. BUTTONS
+================================================== */
 
 .book-button {
-  padding: 0.9rem 2rem;
   background: #000;
   color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 1rem;
   transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.book-button:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.button:hover,
+.contact-form button:hover {
+  color: #000;
+}
+
+.button,
+.contact-form button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: var(--accent); /* #C9B8A8 */
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  margin: 1.5rem auto 0;
+  margin-top: 1rem;
+  display: block;
+}
+
+.contact-form button {
+  font-family: 'Playfair Display', serif;
+  width: fit-content;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background: #c9b8a8; /* your champagne accent */
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
 }
 
 .book-button:hover {
@@ -1052,134 +760,134 @@ a:hover {
   transform: translateY(0);
 }
 
-/* ===========================
-   PORTFOLIO
-=========================== */
-.portfolio {
-  padding: 4rem 0;
-}
+/* ==================================================
+   14. MEDIA QUERIES
+================================================== */
 
-.portfolio-container {
-  max-width: none;
-  padding: 0 2rem;
-}
+/* ---------- NAV / TABLET ---------- */
+@media (max-width: 900px) {
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
+  .nav-left,
+  .nav-icons {
+    display: none;
+  }
 
-.portfolio-grid img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  display: block;
-  border-radius: 0;
-}
+  .nav-container {
+    justify-content: center;
+    position: relative;
+  }
 
+  .logo a {
+    font-size: 1.6rem;
+  }
 
-@media (max-width: 700px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hamburger {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    z-index: 2001;
+  }
+
+  .mobile-menu {
+    top: 70px;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .mobile-menu a {
+    font-size: 1.6rem;
+    text-align: right;
   }
 }
 
-/* Mobile IG Icon */
-.mobile-menu .mobile-ig-icon {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
+
+/* ---------- TABLET + MOBILE ---------- */
+@media (max-width: 768px) {
+
+  /* Page headers */
+  .page-header {
+    padding: 3.5rem 1.5rem 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Section padding */
+  .services,
+  .contact {
+    padding: 0 1.5rem 3.5rem;
+  }
+
+    /* Home About */
+  .home-about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+
+  /* Portfolio: edge-tight gallery */
+  .portfolio {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .portfolio-container {
+    padding: 0 0.5rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  /* Services */
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
-.mobile-menu .mobile-ig-icon img {
-  width: 28px;
-  height: 28px;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
+  .home-about-photo {
+    max-width: 220px;
+  }
+
+  .home-about-text h2 {
+    text-align: center;
+  }
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 6rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .home-intro {
+    margin: 4rem auto;
+  }
+
+  .home-intro h2 {
+    font-size: 1.8rem;
+  }
 }
 
-.mobile-menu .mobile-ig-icon img:hover {
-  opacity: 1;
-}
 
-/* ----------------------------- */
-/*   CHERISHED FORM REFINEMENT   */
-/* ----------------------------- */
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-.contact-form label {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 1rem 1.2rem;
-  margin-top: 0.5rem;
-  border: 1.5px solid #e5e5e5;
-  border-radius: 8px;
-  background: #fff;
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  transition: all 0.25s ease;
-}
-
-/* Luxury focus style */
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(201, 184, 168, 0.25); /* soft champagne glow */
-}
-
-/* Textarea sizing */
-.contact-form textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-/* SUBMIT BUTTON */
-.contact-form button {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-/* Button hover effect — soft lift */
-.contact-form button:hover {
-  background: #b9a292; /* slightly deeper champagne */
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-/* Button focus (for accessibility) */
-.contact-form button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(201,184,168,0.35);
-}
-
-/* ===========================
-   POLICIES PAGE STYLING
-=========================== */
+/* ==================================================
+   15. POLICIES
+================================================== */
 
 .privacy {
   padding: 5rem 2rem;
@@ -1252,59 +960,3 @@ a:hover {
   color: var(--accent);
   text-decoration: underline;
 }
-
-/* --- FIX CONTACT FORM LAYOUT --- */
-
-.contact-form {
-  display: flex;
-  flex-direction: column;   /* stack fields vertically */
-  gap: 1rem;                /* spacing between fields */
-  max-width: 600px;         /* keeps form narrow + centered */
-  margin: 2rem auto;        /* center horizontally */
-}
-
-.contact-form label {
-  display: flex;
-  flex-direction: column;   /* label on top, input underneath */
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #444;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.contact-form button {
-  width: fit-content;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  background: #c9b8a8; /* your champagne accent */
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 1rem;
-}
-
-.contact-form button:hover {
-  opacity: 0.85;
-}
-
-.contact-form button {
-  display: block;
-  margin: 1.5rem auto 0;
-}
-
-/* Footer */
-.site-footer {
-  background-color: #1F2A44; /* navy */
-  padding: 5rem 2rem;
-  text-align: center;
-}
-
