@@ -476,6 +476,13 @@ section > :first-child {
   opacity: 1;
 }
 
+.service-preview h2 {
+  grid-column: 1 / -1;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
 /* 7.2 Home Intro / Manifesto */
 
@@ -771,6 +778,18 @@ section > :first-child {
   transition: border 0.2s ease;
 }
 
+input,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: inherit;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
 /* ==================================================
    11. FORMS (GLOBAL): inputs, labels, buttons
 ================================================== */
@@ -795,12 +814,70 @@ section > :first-child {
 }
 
 /* ==================================================
-   13. BUTTONS
+   13. BUTTONS (Updated 12/24/25)
 ================================================== */
 
-.book-button {
-  background: #000;
+/* Primary buttons (Booking, Submit, Main CTAs) */
+.button,
+.contact-form button {
+  display: inline-block;
+  margin: 1.5rem auto 0;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+
+  padding: 0.75rem 2rem;
+  background-color: var(--accent);
   color: #fff;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button:hover,
+.contact-form button:hover {
+  color: #000;
+}
+
+/* Contact form button specifics */
+.contact-form button {
+  font-family: 'Playfair Display', serif;
+  width: fit-content;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* =========================
+   SECONDARY BUTTON
+   (Return Home, low-emphasis actions)
+   ========================= */
+
+.book-button {
+  display: inline-block;
+  margin-top: 2rem;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+
+  cursor: pointer;
+
   transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 
@@ -810,49 +887,60 @@ section > :first-child {
   transform: translateY(-2px);
 }
 
-.button:hover,
-.contact-form button:hover {
-  color: #000;
+.book-button:active {
+  transform: translateY(0);
 }
 
+.book-button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ==================================================
+   13. BUTTONS
+================================================== */
+/* Base button style — used everywhere */
 .button,
-.contact-form button {
+.contact-form button,
+.book-button {
   display: inline-block;
   padding: 0.75rem 2rem;
-  background-color: var(--accent); /* #C9B8A8 */
+
+  background-color: var(--accent); /* champagne */
   color: #fff;
+
   text-decoration: none;
   border: none;
   border-radius: 6px;
+
+  font-family: inherit;
   font-size: 0.95rem;
+  font-weight: 500;
   letter-spacing: 0.08em;
+
   cursor: pointer;
   transition: color 0.2s ease, background-color 0.2s ease;
-  margin: 1.5rem auto 0;
-  margin-top: 1rem;
-  display: block;
-  font-weight: 500;
 }
 
+/* Hover behavior — matches existing buttons */
+.button:hover,
+.contact-form button:hover,
+.book-button:hover {
+  color: #000;
+}
+
+/* Contact form button refinements */
 .contact-form button {
   font-family: 'Playfair Display', serif;
   width: fit-content;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  border: none;
-  background: #c9b8a8; /* your champagne accent */
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
   margin-top: 1rem;
 }
 
-.book-button:hover {
-  background: var(--accent);
-  color: #000;
-  transform: translateY(-2px);
-}
-
+/* Optional active state (kept subtle) */
+.button:active,
+.contact-form button:active,
 .book-button:active {
   transform: translateY(0);
 }
@@ -932,6 +1020,11 @@ section > :first-child {
     text-align: center;
   }
 
+  .home-about-photo {
+  max-width: 320px;
+  margin: 0 auto 2rem;
+}
+
   /* 12/21 Services Preview on Home Page */
 
     .service-preview {
@@ -969,11 +1062,6 @@ section > :first-child {
     padding-top: 3rem;
   }
   
-
-  .home-about-photo {
-    max-width: 220px;
-  }
-
   .home-about-text h2 {
     text-align: center;
   }
@@ -1026,6 +1114,33 @@ section > :first-child {
     font-size: 1.8rem;
   }
 }
+
+/* ---------- iPad Portrait: Home About (side-by-side, balanced) ---------- */
+@media (min-width: 769px) and (max-width: 900px) {
+  .home-about-inner {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .home-about-photo {
+    flex: 0 0 38%;
+    max-width: 38%;
+  }
+
+  .home-about-photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .home-about-text {
+    flex: 1;
+    max-width: 62%;
+  }
+}
+
+
+
 
 
 /* ==================================================
