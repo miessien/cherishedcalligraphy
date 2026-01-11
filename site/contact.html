@@ -126,17 +126,15 @@
           <input name="bot-field">
         </p>
 
-        <label>Name
-          <input type="text" name="name" required>
-        </label>
 
-        <label>Email
-          <input type="email" name="email" required>
-        </label>
+        <label for="name">Name (Required)</label>
+        <input id="name" type="text" name="name" required>
 
-        <label>Message
-          <textarea name="message" rows="5" required></textarea>
-        </label>
+        <label for="email">Email (Required)</label>
+        <input id="email" type="email" name="email" required>
+
+        <label for="message">Message (Required)</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
@@ -192,9 +190,15 @@
         </a>
 
       </div>
+
+       <p>
+          <a href="accessibility.html">Accessibility</a>
+        </p>
     </div>
+    
   </footer>
 
   <script src="js/menu.js"></script>
+  
 </body>
 </html>
